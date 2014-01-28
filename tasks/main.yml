@@ -1,0 +1,27 @@
+---
+- name: download
+  get_url: url=http://download-lb.utorrent.com/endpoint/btsync/os/linux-glibc23-{{ btsync_platform }}/track/stable dest=/tmp/btsync.tar.gz
+  register: download
+
+- name: extract
+  command: tar xvzf /tmp/btsync.tar.gz -C /tmp
+  when: download | changed
+
+- name: copy btsync to /usr/local/bin
+  command: cp /tmp/btsync /usr/local/bin/
+  notify: start btsync
+  when: download | changed
+
+- name: install service
+  template: src=btsync dest=/etc/init.d/btsync mode=755
+
+- name: activate service
+  command: insserv btsync
+
+- name: copy config
+  template: src=config.json dest=/home/{{ btsync_user }}/.sync/ owner={{ btsync_user }} group={{ btsync_user }} mode=700
+  notify: restart btsync
+
+- name: create folders
+  file: path={{ item.path }} recurse=yes state=directory owner={{ btsync_user }} group={{ btsync_user }} mode=700
+  with_items: btsync_shared_folders
