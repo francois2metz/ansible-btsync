@@ -1,6 +1,7 @@
 ---
 - name: download
-  get_url: url=http://download-lb.utorrent.com/endpoint/btsync/os/linux-glibc23-{{ btsync_platform }}/track/stable dest=/tmp/btsync.tar.gz
+  get_url: url="{{ btsync_url[ansible_architecture] }}"
+           dest=/var/tmp/btsync.tgz
   register: download
 
 - name: extract

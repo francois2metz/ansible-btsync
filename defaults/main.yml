@@ -1,0 +1,4 @@
+btsync_url:
+  i386:   http://download-lb.utorrent.com/endpoint/btsync/os/{{ ansible_system|lower }}-glibc23-i386/track/stable
+  x86_64: http://download-lb.utorrent.com/endpoint/btsync/os/{{ ansible_system|lower }}-glibc23-x64/track/stable
+  arm:    http://download-lb.utorrent.com/endpoint/btsync/os/{{ ansible_system|lower }}-arm/track/stable
