@@ -1,6 +1,6 @@
 # Ansible btsync
 
-Install and manage a btsync server.
+Install and manage a btsync server on Linux.
 
 * download btsync
 * install it on /usr/local
