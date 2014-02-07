@@ -9,8 +9,6 @@ Install and manage a btsync server.
 
 # Role Variables
 
-**btsync_platform**: The target arch of the system (i386 or x64)
-
 **btsync_user**: The user who run the btsync daemon
 
 **btsync_webui.user**: The username used to protect the webui
@@ -30,7 +28,6 @@ Install and manage a btsync server.
 ```yaml
   roles:
     - role: btsync
-      btsync_platform: x64
       btsync_user: thelocaluser
       btsync_webui:
         user: admin
