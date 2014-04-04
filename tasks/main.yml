@@ -1,7 +1,7 @@
 ---
 - name: download
   get_url: url="{{ btsync_url[ansible_architecture] }}"
-           dest=/var/tmp/btsync.tgz
+           dest=/tmp/btsync.tar.gz
   register: download
 
 - name: extract
