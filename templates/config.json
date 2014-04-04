@@ -7,10 +7,12 @@
 "download_limit": 0,
 "upload_limit": 0,
 "webui": {
+    {% if btsync_webui.get(api_key) %}
+    "api_key"  : "{{ btsync_webui.api_key }}",
+    {% endif %}
     "listen": "0.0.0.0:8888",
     "login" : "{{ btsync_webui.user }}",
-    "password" : "{{ btsync_webui.password }}",
-    "api_key"  : "{{ btsync_webui.api_key }}"
+    "password" : "{{ btsync_webui.password }}"
 },
 "shared_folders": [
     {% for folder in btsync_shared_folders %}
