@@ -9,6 +9,8 @@ Install and manage a btsync server on Linux.
 
 # Role Variables
 
+**btsync_upnp**: Whether or not to use uPNP. It is enabled by default
+
 **btsync_user**: The user who run the btsync daemon
 
 **btsync_webui.user**: The username used to protect the webui
