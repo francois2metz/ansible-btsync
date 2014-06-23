@@ -7,7 +7,7 @@
 "download_limit": 0,
 "upload_limit": 0,
 "webui": {
-    {% if btsync_webui.get(api_key) %}
+    {% if api_key is defined and btsync_webui.get(api_key) %}
     "api_key"  : "{{ btsync_webui.api_key }}",
     {% endif %}
     "listen": "0.0.0.0:8888",
@@ -15,6 +15,7 @@
     "password" : "{{ btsync_webui.password }}"
 },
 "shared_folders": [
+    {% if btsync_shared_folders is defined %}
     {% for folder in btsync_shared_folders %}
     {
       "secret" : "{{ folder.key }}",
@@ -27,5 +28,6 @@
       "use_sync_trash" : true
     }{% if not loop.last %},{% endif %}
     {% endfor %}
+    {% endif %}
 ]
 }
