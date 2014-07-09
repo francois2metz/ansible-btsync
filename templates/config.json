@@ -10,7 +10,7 @@
     {% if btsync_webui.get('api_key') %}
     "api_key"  : "{{ btsync_webui.api_key }}",
     {% endif %}
-    "listen": "0.0.0.0:8888",
+    "listen": "{{ btsync_webui.listen }}:8888",
     "login" : "{{ btsync_webui.user }}",
     "password" : "{{ btsync_webui.password }}"
 },
