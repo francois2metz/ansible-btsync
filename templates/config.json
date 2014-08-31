@@ -2,7 +2,7 @@
 "device_name": "btsync_{{ btsync_user }}",
 "listening_port": 0,
 "storage_path": "/home/{{ btsync_user }}/.sync",
-"check_for_updates": true,
+"check_for_updates": false,
 "use_upnp": {% if btsync_upnp %}true{% else %}false{% endif %},
 "download_limit": 0,
 "upload_limit": 0,
