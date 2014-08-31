@@ -9,17 +9,19 @@ Install and manage a btsync server on Linux.
 
 # Role Variables
 
-**btsync_upnp**: Whether or not to use uPNP. It is enabled by default
+**btsync_upnp**: Optional. Whether or not to use uPNP. True by default
 
-**btsync_user**: The user who run the btsync daemon
+**btsync_user**: Required. The user who run the btsync daemon.
 
-**btsync_webui.user**: The username used to protect the webui
+**btsync_webui.listen**: Optional. The ip to listen. Default 0.0.0.0.
 
-**btsync_webui.password**: The password used to protect the webui
+**btsync_webui.user**: Required. The username used to protect the webui
 
-**btsync_webui.api_key**: The api key to use the btsync API (http://www.bittorrent.com/sync/developers/api)
+**btsync_webui.password**: Required. The password used to protect the webui
 
-**btsync_shared_folders**: An array of shared folders
+**btsync_webui.api_key**: Optional. The api key to use the btsync API (http://www.bittorrent.com/sync/developers/api)
+
+**btsync_shared_folders**: Optional. An array of shared folders
 
 **btsync_shared_folders.0.path**: The path where the files will be synced
 
