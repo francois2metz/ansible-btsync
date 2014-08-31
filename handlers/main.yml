@@ -4,3 +4,6 @@
 
 - name: restart btsync
   service: name=btsync state=restarted
+
+- name: stop btsync
+  service: name=btsync state=restarted
