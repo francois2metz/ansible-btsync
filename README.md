@@ -10,6 +10,7 @@ Install and manage a btsync server on Linux.
 # Role Variables
 
 **btsync_port**: Optional. Specify port to run on. Defaults to a random port at startup.
+
 **btsync_upnp**: Optional. Whether or not to use uPNP. True by default
 
 **btsync_user**: Required. The user who run the btsync daemon.
