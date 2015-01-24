@@ -6,3 +6,4 @@ btsync_url:
 btsync_upnp: true
 btsync_webui:
   - listen: 0.0.0.0
+btsync_port: 0
