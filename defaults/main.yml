@@ -7,3 +7,8 @@ btsync_upnp: true
 btsync_webui:
   - listen: 0.0.0.0
 btsync_port: 0
+btsync_use_relay_server: true
+btsync_use_tracker: true
+btsync_use_dht: false
+btsync_search_lan: true
+btsync_use_sync_trash: true
