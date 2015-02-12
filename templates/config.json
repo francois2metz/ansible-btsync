@@ -3,7 +3,7 @@
 "listening_port": {{ btsync_port }},
 "storage_path": "/home/{{ btsync_user }}/.sync",
 "check_for_updates": false,
-"use_upnp": {% if btsync_upnp %}true{% else %}false{% endif %},
+"use_upnp": {{btsync_upnp|lower}},
 "download_limit": 0,
 "upload_limit": 0,
 "webui": {
@@ -21,11 +21,11 @@
       "secret" : "{{ folder.key }}",
       "dir" : "{{ folder.path }}",
 
-      "use_relay_server" : true,
-      "use_tracker" : true,
-      "use_dht" : false,
-      "search_lan" : true,
-      "use_sync_trash" : true
+      "use_relay_server" : {{folder.use_relay_server|default(btsync_use_relay_server)|lower}},
+      "use_tracker" : {{folder.use_tracker|default(btsync_use_tracker)|lower}},
+      "use_dht" : {{folder.use_dht|default(btsync_use_dht)|lower}},
+      "search_lan" : {{folder.search_lan|default(btsync_search_lan)|lower}},
+      "use_sync_trash" : {{folder.use_sync_trash|default(btsync_use_sync_trash)|lower}}
     }{% if not loop.last %},{% endif %}
     {% endfor %}
     {% endif %}
