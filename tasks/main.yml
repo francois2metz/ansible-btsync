@@ -1,8 +1,15 @@
 ---
-- name: download
-  get_url: url="{{ btsync_url[ansible_architecture] }}"
+- name: download v2
+  get_url: url="{{ btsync_url_v2[ansible_architecture] }}"
            dest=/tmp/btsync.tar.gz
   register: download
+  when: btsync_v2
+
+- name: download v1
+  get_url: url="{{ btsync_url_v1[ansible_architecture] }}"
+           dest=/tmp/btsync.tar.gz
+  register: download
+  when: not btsync_v2
 
 - name: extract
   command: tar xvzf /tmp/btsync.tar.gz -C /tmp
