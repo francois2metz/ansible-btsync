@@ -1,21 +1,22 @@
 {
-"device_name": "btsync_{{ btsync_user }}",
-"listening_port": {{ btsync_port }},
-"storage_path": "/home/{{ btsync_user }}/.sync",
-"check_for_updates": false,
-"use_upnp": {{btsync_upnp|lower}},
-"download_limit": 0,
-"upload_limit": 0,
-"webui": {
-    {% if btsync_webui.get('api_key') %}
-    "api_key"  : "{{ btsync_webui.api_key }}",
-    {% endif %}
-    "listen": "{{ btsync_webui.listen }}:8888",
-    "login" : "{{ btsync_webui.user }}",
-    "password" : "{{ btsync_webui.password }}"
-},
-"shared_folders": [
-    {% if btsync_shared_folders is defined %}
+  "device_name": "btsync_{{ btsync_user }}",
+  "listening_port": {{ btsync_port }},
+  "storage_path": "/home/{{ btsync_user }}/.sync",
+  "check_for_updates": false,
+  "use_upnp": {{btsync_upnp|lower}},
+  "download_limit": 0,
+  "upload_limit": 0,
+  "agree_to_EULA": {% if btsync_eula_accept -%}"yes"{% else -%}"no"{% endif -%},
+  "webui": {
+     {% if btsync_webui.get('api_key') -%}
+     "api_key"  : "{{ btsync_webui.api_key }}",
+     {% endif -%}
+     "listen": "{{ btsync_webui.listen }}:8888",
+     "login" : "{{ btsync_webui.user }}",
+     "password" : "{{ btsync_webui.password }}"
+  },
+  "shared_folders": [
+    {% if btsync_shared_folders is defined -%}
     {% for folder in btsync_shared_folders %}
     {
       "secret" : "{{ folder.key }}",
@@ -26,8 +27,8 @@
       "use_dht" : {{folder.use_dht|default(btsync_use_dht)|lower}},
       "search_lan" : {{folder.search_lan|default(btsync_search_lan)|lower}},
       "use_sync_trash" : {{folder.use_sync_trash|default(btsync_use_sync_trash)|lower}}
-    }{% if not loop.last %},{% endif %}
+    }{% if not loop.last -%},{% endif -%}
     {% endfor %}
-    {% endif %}
+    {% endif -%}
 ]
 }

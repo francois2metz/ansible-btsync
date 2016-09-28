@@ -1,7 +1,7 @@
 btsync_url:
-  i386:   https://download-cdn.getsyncapp.com/stable/{{ ansible_system|lower }}-i386/BitTorrent-Sync_i386.tar.gz
-  x86_64:   https://download-cdn.getsyncapp.com/stable/{{ ansible_system|lower }}-x64/BitTorrent-Sync_x64.tar.gz
-  arm:   https://download-cdn.getsyncapp.com/stable/{{ ansible_system|lower }}-arm/BitTorrent-Sync_arm.tar.gz
+  i386:   https://download-cdn.getsync.com/stable/{{ ansible_system|lower }}-i386/BitTorrent-Sync_i386.tar.gz
+  x86_64:   https://download-cdn.getsync.com/stable/{{ ansible_system|lower }}-x64/BitTorrent-Sync_x64.tar.gz
+  arm:   https://download-cdn.getsync.com/stable/{{ ansible_system|lower }}-arm/BitTorrent-Sync_arm.tar.gz
 btsync_upnp: true
 btsync_webui:
   - listen: 0.0.0.0
@@ -11,3 +11,4 @@ btsync_use_tracker: true
 btsync_use_dht: false
 btsync_search_lan: true
 btsync_use_sync_trash: true
+btsync_eula_accept: false
