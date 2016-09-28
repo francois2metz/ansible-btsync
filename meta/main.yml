@@ -5,6 +5,6 @@ galaxy_info:
   company: Stormz
   license: BSD
   min_ansible_version: 1.2
-  categories:
+  galaxy_tags:
     - networking
 dependencies: []
